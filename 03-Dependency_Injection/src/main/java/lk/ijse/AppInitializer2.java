@@ -3,6 +3,7 @@ package lk.ijse;
 import lk.ijse.been.Boy;
 import lk.ijse.been.Girl;
 import lk.ijse.config.AppConfig;
+import lk.ijse.di.TestOne;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppInitializer2 {
@@ -10,8 +11,8 @@ public class AppInitializer2 {
      AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
      context.register(AppConfig.class);
         context.refresh();
-        Boy boy = context.getBean(Boy.class);
-     boy.ChatWithBoy();
+        TestOne t1 = context.getBean(TestOne.class);
+     t1.ChatWithTestTwo();
      context.registerShutdownHook();
 
     }

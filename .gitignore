@@ -1,0 +1,4 @@
+# Project exclude paths
+/01-Spring_Core/target/
+/02-SpringBean_LifeCycle/target/
+/03-Dependency_Injection/target/

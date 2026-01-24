@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/05-Cofigurtion_Object.iml" filepath="$PROJECT_DIR$/05-Cofigurtion_Object.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring_framework_73.iml" filepath="$PROJECT_DIR$/Spring_framework_73.iml" />
     </modules>
   </component>

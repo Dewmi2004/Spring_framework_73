@@ -1,10 +1,12 @@
 package lk.ijse.di;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //interface through injection
 @Component
+@Scope("prototype")//use prototype instead of singleton
 public class TestOne implements DIInterface {
 DI di;
 @Autowired

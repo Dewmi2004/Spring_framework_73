@@ -8,3 +8,4 @@ public class SpringBean {
         System.out.println("SpringBean constructor");
     }
 }
+

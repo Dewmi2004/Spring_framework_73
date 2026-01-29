@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="08-Spring_WebMVC" />
         <module name="04-Spring-Full_Mode-VS-Light_mode" />
         <module name="06-RunTime_Value_Injection" />
         <module name="07-Spring_Environment" />

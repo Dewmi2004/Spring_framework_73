@@ -1,0 +1,161 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, lightseagreen 0%, white 50%, lightseagreen 100%);
+    margin: 0;
+    padding: 20px;
+}
+
+#head {
+    text-align: center;
+    color: lightseagreen;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(32, 178, 170, 0.2);
+}
+
+#nav {
+    background-color: lightseagreen;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(32, 178, 170, 0.15);
+}
+
+.form-label {
+    color: lightseagreen;
+    font-weight: 600;
+}
+
+.form-control {
+    border: 2px solid lightseagreen;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: lightseagreen;
+    box-shadow: 0 0 0 0.2rem rgba(32, 178, 170, 0.25);
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: all 0.3s;
+}
+
+.btn-primary-save {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.btn-primary-save:hover {
+    background-color: #1a9e94;
+}
+
+.btn-primary-update {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.btn-primary-update:hover {
+    background-color: #1a9e94;
+}
+
+.btn-primary-reset {
+    background-color: white;
+    color: lightseagreen;
+    border: 2px solid lightseagreen;
+}
+
+.btn-primary-reset:hover {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.btn-primary-delete {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.btn-primary-delete:hover {
+    background-color: #1a9e94;
+}
+
+#table {
+    margin-top: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(32, 178, 170, 0.15);
+}
+
+.table-customer {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table-customer thead {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.table-customer thead tr th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+}
+
+.table-customer tbody tr {
+    border-bottom: 1px solid rgba(32, 178, 170, 0.2);
+    transition: background-color 0.3s;
+}
+
+.table-customer tbody tr:hover {
+    background-color: rgba(32, 178, 170, 0.1);
+}
+
+.table-customer tbody tr td {
+    padding: 12px 15px;
+    color: #333;
+}
+
+.table-customer tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Alternating row colors */
+.table-customer tbody tr:nth-child(even) {
+    background-color: rgba(32, 178, 170, 0.05);
+}
+
+.table-customer tbody tr:nth-child(even):hover {
+    background-color: rgba(32, 178, 170, 0.15);
+}

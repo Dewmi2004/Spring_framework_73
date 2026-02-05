@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -12,10 +13,19 @@
         <module name="07-Spring_Environment" />
         <module name="03-Dependency_Injection" />
         <module name="09-REST_Controller" />
+        <module name="Back_End" />
         <module name="02-SpringBean_LifeCycle" />
         <module name="01-Spring_Core" />
         <module name="05-Cofigurtion_Object" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="10_Frount_End" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Back_End" options="-parameters" />
+    </option>
   </component>
 </project>

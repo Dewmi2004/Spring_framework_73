@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, lightseagreen 0%, white 50%, lightseagreen 100%);
+    background: linear-gradient(135deg, lightseagreen 0%, floralwhite 50%, lightseagreen 100%);
     margin: 0;
     padding: 20px;
 }
@@ -11,7 +11,7 @@ body {
     color: lightseagreen;
     margin-bottom: 30px;
     padding: 20px;
-    background-color: white;
+    background-color: whitesmoke;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(32, 178, 170, 0.2);
 }
@@ -25,7 +25,7 @@ body {
 }
 
 #nav a {
-    color: white;
+    color: whitesmoke;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
@@ -38,7 +38,7 @@ body {
 }
 
 form {
-    background-color: white;
+    background-color: whitesmoke;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(32, 178, 170, 0.15);
@@ -70,7 +70,7 @@ form {
 
 .btn-primary-save {
     background-color: lightseagreen;
-    color: white;
+    color: whitesmoke;
 }
 
 .btn-primary-save:hover {
@@ -79,7 +79,7 @@ form {
 
 .btn-primary-update {
     background-color: lightseagreen;
-    color: white;
+    color: whitesmoke;
 }
 
 .btn-primary-update:hover {
@@ -87,19 +87,19 @@ form {
 }
 
 .btn-primary-reset {
-    background-color: white;
+    background-color: whitesmoke;
     color: lightseagreen;
     border: 2px solid lightseagreen;
 }
 
 .btn-primary-reset:hover {
     background-color: lightseagreen;
-    color: white;
+    color: whitesmoke;
 }
 
 .btn-primary-delete {
     background-color: lightseagreen;
-    color: white;
+    color: whitesmoke;
 }
 
 .btn-primary-delete:hover {
@@ -108,7 +108,7 @@ form {
 
 #table {
     margin-top: 40px;
-    background-color: white;
+    background-color: whitesmoke;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(32, 178, 170, 0.15);
@@ -122,7 +122,7 @@ form {
 
 .table-customer thead {
     background-color: lightseagreen;
-    color: white;
+    color: whitesmoke;
 }
 
 .table-customer thead tr th {

@@ -1,30 +1,40 @@
 package lk.ijse.back_end.controller;
 
 import lk.ijse.back_end.dto.CustomerDTO;
-import lk.ijse.back_end.service.CustomerServiceImpl;
+import lk.ijse.back_end.entity.CustomerEntity;
+import lk.ijse.back_end.service.impl.CustomerServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/customer")
+@CrossOrigin
 public class CustomerController {
     private final CustomerServiceImpl customerService;
-//public CustomerController(CustomerServiceImpl customerService){
-//    this.customerService=customerService;
-//}
+
     @PostMapping
     public void saveCustomer(@RequestBody CustomerDTO customerDTO) {
         //@RequestBody - read request body
         System.out.println("saveCustomer");
-//        System.out.println(customerDTO.getId());
-//        System.out.println(customerDTO.getName());
-//        System.out.println(customerDTO.getAge());
-//        System.out.println(customerDTO.getAddress());
 
         customerService.saveCustomer(customerDTO);
+    }
+    @PutMapping
+    public void UpdateCustomer(@RequestBody CustomerDTO customerDTO) {
+        System.out.println("UpdateCustomer");
+        customerService.updateCustomer(customerDTO);
+    }
+    @DeleteMapping
+    public void DeleteCustomer(@RequestBody CustomerDTO customerDTO) {
+        System.out.println("DeleteCustomer");
+        customerService.deleteCustomer(customerDTO);
+    }
+    @GetMapping
+    public List<CustomerEntity> getAllCustomers() {
+        return customerService.getAllCustomers();
+
     }
 }

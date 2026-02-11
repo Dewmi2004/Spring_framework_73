@@ -7,10 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class CustomerDTO {
-    private String id;
-    private String name;
-    private String age;
-    private String address;
+public class ItemDTO {
+    private String i_id;
+    private String i_name;
+    private String price;
+    private String quantity;
 
 }

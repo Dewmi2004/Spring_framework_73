@@ -87,7 +87,7 @@ $(document).ready(function () {
 });
 
 function getAllCustomers() {
-    $(".table-customer tbody").empty();
+    $("#table-customer tbody").empty();
 
     $.ajax({
         url: "http://localhost:8080/api/v1/customer",
@@ -102,7 +102,7 @@ function getAllCustomers() {
                         <td>${c.address}</td>
                     </tr>
                 `;
-                $(".table-customer tbody").append(row);
+                $("#table-customer tbody").append(row);
             }
         },
         error: function (err) {

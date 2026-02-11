@@ -1,23 +1,23 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, lightseagreen 0%, floralwhite 50%, lightseagreen 100%);
+    background: linear-gradient(135deg, seagreen 0%, darkslategray 50%, seagreen 100%);
     margin: 0;
     padding: 20px;
 }
 
 #head {
     text-align: center;
-    color: lightseagreen;
+    color: lightgrey;
     margin-bottom: 30px;
     padding: 20px;
-    background-color: whitesmoke;
+    background-color: darkslategray;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(32, 178, 170, 0.2);
 }
 
 #nav {
-    background-color: lightseagreen;
+    background-color: seagreen;
     padding: 15px;
     text-align: center;
     border-radius: 8px;
@@ -25,7 +25,7 @@ body {
 }
 
 #nav a {
-    color: whitesmoke;
+    color: lightgrey;
     text-decoration: none;
     padding: 10px 20px;
     margin: 0 10px;
@@ -38,24 +38,25 @@ body {
 }
 
 form {
-    background-color: whitesmoke;
+    background-color: lightgrey;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(32, 178, 170, 0.15);
 }
 
 .form-label {
-    color: lightseagreen;
+    color: seagreen;
     font-weight: 600;
 }
 
 .form-control {
-    border: 2px solid lightseagreen;
+    border: 2px solid seagreen;
     border-radius: 5px;
+    background: lightgrey;
 }
 
 .form-control:focus {
-    border-color: lightseagreen;
+    border-color: seagreen;
     box-shadow: 0 0 0 0.2rem rgba(32, 178, 170, 0.25);
 }
 
@@ -69,8 +70,8 @@ form {
 }
 
 .btn-primary-save {
-    background-color: lightseagreen;
-    color: whitesmoke;
+    background-color: seagreen;
+    color: lightgrey;
 }
 
 .btn-primary-save:hover {
@@ -78,8 +79,8 @@ form {
 }
 
 .btn-primary-update {
-    background-color: lightseagreen;
-    color: whitesmoke;
+    background-color: seagreen;
+    color: lightgrey;
 }
 
 .btn-primary-update:hover {
@@ -87,19 +88,19 @@ form {
 }
 
 .btn-primary-reset {
-    background-color: whitesmoke;
-    color: lightseagreen;
-    border: 2px solid lightseagreen;
+    background-color: lightgrey;
+    color: seagreen;
+    border: 2px solid seagreen;
 }
 
 .btn-primary-reset:hover {
-    background-color: lightseagreen;
-    color: whitesmoke;
+    background-color: seagreen;
+    color: lightgrey;
 }
 
 .btn-primary-delete {
-    background-color: lightseagreen;
-    color: whitesmoke;
+    background-color: seagreen;
+    color: lightgrey;
 }
 
 .btn-primary-delete:hover {
@@ -108,24 +109,24 @@ form {
 
 #table {
     margin-top: 40px;
-    background-color: whitesmoke;
+    background-color: lightgrey;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(32, 178, 170, 0.15);
 }
 
-.table-customer {
+.table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.table-customer thead {
-    background-color: lightseagreen;
-    color: whitesmoke;
+.table thead {
+    background-color: seagreen;
+    color: lightgrey;
 }
 
-.table-customer thead tr th {
+.table thead tr th {
     padding: 15px;
     text-align: left;
     font-weight: 600;
@@ -133,29 +134,29 @@ form {
     border: none;
 }
 
-.table-customer tbody tr {
+.table tbody tr {
     border-bottom: 1px solid rgba(32, 178, 170, 0.2);
     transition: background-color 0.3s;
 }
 
-.table-customer tbody tr:hover {
+.table tbody tr:hover {
     background-color: rgba(32, 178, 170, 0.1);
 }
 
-.table-customer tbody tr td {
+.table tbody tr td {
     padding: 12px 15px;
     color: #333;
 }
 
-.table-customer tbody tr:last-child {
+.table tbody tr:last-child {
     border-bottom: none;
 }
 
 /* Alternating row colors */
-.table-customer tbody tr:nth-child(even) {
+.table tbody tr:nth-child(even) {
     background-color: rgba(32, 178, 170, 0.05);
 }
 
-.table-customer tbody tr:nth-child(even):hover {
+.table tbody tr:nth-child(even):hover {
     background-color: rgba(32, 178, 170, 0.15);
 }

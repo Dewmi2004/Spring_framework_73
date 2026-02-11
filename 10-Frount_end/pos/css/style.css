@@ -75,7 +75,7 @@ form {
 }
 
 .btn-primary-save:hover {
-    background-color: #1a9e94;
+    background-color:steelblue;
 }
 
 .btn-primary-update {
@@ -84,7 +84,7 @@ form {
 }
 
 .btn-primary-update:hover {
-    background-color: #1a9e94;
+    background-color: #cb9c5a;
 }
 
 .btn-primary-reset {
@@ -104,7 +104,7 @@ form {
 }
 
 .btn-primary-delete:hover {
-    background-color: #1a9e94;
+    background-color:#ad5757;
 }
 
 #table {

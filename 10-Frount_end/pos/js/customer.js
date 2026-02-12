@@ -1,17 +1,15 @@
 function saveCustomer(){
-    let id=$('#inputid').val()
     let name=$('#inputname').val()
     let age=$('#inputage').val()
     let address=$('#inputAddress').val()
 
-    console.log(id,name,age,address)
+    console.log(name,age,address)
     $.ajax({
         url:"http://localhost:8080/api/v1/customer",
         method:"POST",
         contentType:"application/json",
         data:JSON.stringify({
 
-        "id":id,
         "name":name,
         "age":age,
         "address":address

@@ -15,31 +15,53 @@
 </div>
     <form class="row g-3">
         <div class="col-md-6">
-            <label for="inputname" class="form-label">Customer Name</label>
-            <input type="text" class="form-control" id="inputname">
+            <label for="inputordid" class="form-label">Order Id</label>
+            <input type="text" class="form-control" id="inputordid">
         </div>
         <div class="col-md-6">
-            <label for="inputitemname" class="form-label">Item Name</label>
-            <input type="text" class="form-control" id="inputitemname">
+            <label for="inputcusid" class="form-label">Customer Id</label>
+            <input type="text" class="form-control" id="inputcusid">
         </div>
         <div class="col-md-6">
-            <label for="inputprice" class="form-label">Unit Price</label>
-            <input type="text" class="form-control" id="inputprice">
+            <label for="inputitemordid" class="form-label">Item Id</label>
+            <input type="text" class="form-control" id="inputitemordid">
+        </div>
+        <div class="col-md-6">
+            <label for="inputunitprice" class="form-label">Unit Price</label>
+            <input type="text" class="form-control" id="inputunitprice">
         </div>
         <div class="col-md-6">
             <label for="availablequantity" class="form-label">Available Quantity</label>
             <input type="text" class="form-control" id="availablequantity">
         </div>
         <div class="col-6">
-            <label for="inputQuantity" class="form-label">Quantity</label>
-            <input type="text" class="form-control" id="inputQuantity">
+            <label for="inputordQuantity" class="form-label">Quantity</label>
+            <input type="text" class="form-control" id="inputordQuantity">
         </div>
         <div class="col-12">
-            <button type="button" class="btn btn-primary-reset">Add To Cart</button>
             <button type="button" class="btn btn-primary-save">Place Order</button>
+            <button type="button" class="btn btn-primary-update">Update</button>
+            <button type="reset" class="btn btn-primary-reset" >Reset</button>
+            <button type="button" class="btn btn-primary-delete">Delete</button>
 
         </div>
     </form>
+<div id="table">
+    <table class="table" id="table-order">
+        <thead>
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Item Id</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
 <script src="../jquery-3.7.1.min.js"></script>
 
 <script src="../js/order.js"></script>

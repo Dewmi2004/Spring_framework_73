@@ -1,40 +1,62 @@
-package lk.ijse.back_end.controller;
-
-import lk.ijse.back_end.dto.ItemDTO;
-import lk.ijse.back_end.entity.ItemEntity;
-import lk.ijse.back_end.service.impl.ItemServiceImpl;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("api/v1/order")
-@CrossOrigin
-public class OrderController {
-
-
-    private final ItemServiceImpl itemService;
-
-    @PostMapping
-    public void saveItem(@RequestBody ItemDTO itemDTO) {
-        System.out.println("save Item");
-        itemService.saveItem(itemDTO);
-    }
-    @PutMapping
-    public void UpdateItem(@RequestBody ItemDTO itemDTO) {
-        System.out.println("Update Item");
-        itemService.updateItem(itemDTO);
-    }
-    @DeleteMapping
-    public void DeleteItem(@RequestBody ItemDTO itemDTO) {
-        System.out.println("Delete Item");
-        itemService.deleteItem(itemDTO);
-    }
-    @GetMapping
-    public List<ItemEntity> getAllItems() {
-        return itemService.getAllItems();
-
-    }
-}
+//package lk.ijse.back_end.controller;
+//
+//import lk.ijse.back_end.dto.ItemDTO;
+//import lk.ijse.back_end.dto.OrderDTO;
+//import lk.ijse.back_end.entity.ItemEntity;
+//import lk.ijse.back_end.entity.OrderEntity;
+//import lk.ijse.back_end.service.impl.OrderServiceImpl;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.util.List;
+//
+//@RestController
+//@RequiredArgsConstructor
+//@RequestMapping("api/v1/order")
+//@CrossOrigin
+//public class OrderController {
+//
+//
+//    private final OrderServiceImpl orderService;
+//
+//    @PostMapping
+//    public void saveOrder(@RequestBody OrderDTO orderDTO) {
+//        System.out.println("save Order");
+//        orderService.saveOrder(orderDTO);
+//    }
+//    @PutMapping
+//    public void UpdateOrder(@RequestBody OrderDTO orderDTO) {
+//        System.out.println("Update Order");
+//        orderService.updateOrder(orderDTO);
+//    }
+//    @DeleteMapping
+//    public void DeleteOrder(@RequestBody OrderDTO orderDTO) {
+//        System.out.println("Delete Order");
+//        orderService.deleteOrder(orderDTO);
+//    }
+//    @GetMapping
+//    public List<OrderEntity> getAllOrders() {
+//        return orderService.getAllOrders();
+//
+//    }
+////    @GetMapping
+////    public void setOrderId(@RequestBody OrderDTO orderDTO) {
+////        orderService.setOrderId(orderDTO.getOrderId());
+////    }
+////    @GetMapping
+////    public void setCustomerName(@RequestBody OrderDTO orderDTO) {
+////        orderService.setCustomerName(orderDTO.getCustomerName());
+////    }
+////    @GetMapping
+////    public void setItemName(@RequestBody OrderDTO orderDTO) {
+////        orderService.setItemName(orderDTO.getItemName());
+////    }
+////    @GetMapping
+////    public void setItemPrice(@RequestBody OrderDTO orderDTO) {
+////        orderService.setItemPrice(orderDTO.getItemUnitPrice());
+////    }
+////    @GetMapping
+////    public void setItemQuantity(@RequestBody OrderDTO orderDTO) {
+////        orderService.setItemQuantity(orderDTO.getItemQty());
+////    }
+//}

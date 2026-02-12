@@ -152,7 +152,6 @@ form {
     border-bottom: none;
 }
 
-/* Alternating row colors */
 .table tbody tr:nth-child(even) {
     background-color: rgba(32, 178, 170, 0.05);
 }

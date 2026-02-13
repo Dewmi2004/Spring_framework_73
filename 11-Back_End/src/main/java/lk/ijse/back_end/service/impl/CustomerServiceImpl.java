@@ -23,7 +23,6 @@ private final ModelMapper modelMapper;
 @Override
 public void saveCustomer(CustomerDTO customerDTO) {
     CustomerEntity entity = modelMapper.map(customerDTO, CustomerEntity.class);
-    entity.setId(0);
     customerRepository.save(entity);
 
 }

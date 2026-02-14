@@ -1,5 +1,4 @@
 function saveItem() {
-    let id = $('#inputiid').val();
     let name = $('#inputiname').val();
     let price = $('#inputprice').val();
     let quantity = $('#inputQuantity').val();
@@ -9,7 +8,6 @@ function saveItem() {
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({
-            i_id: id,
             i_name: name,
             price: price,
             quantity: quantity

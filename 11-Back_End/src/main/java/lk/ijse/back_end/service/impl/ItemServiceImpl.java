@@ -1,11 +1,17 @@
 package lk.ijse.back_end.service.impl;
 
+import lk.ijse.back_end.dto.CustomerDTO;
 import lk.ijse.back_end.dto.ItemDTO;
+import lk.ijse.back_end.entity.CustomerEntity;
 import lk.ijse.back_end.entity.ItemEntity;
 import lk.ijse.back_end.repository.ItemRepository;
 import lk.ijse.back_end.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -13,25 +19,42 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
+    private final ModelMapper modelMapper;
+
     @Override
     public void saveItem(ItemDTO itemDTO) {
-        itemRepository.save(new ItemEntity(itemDTO.getI_id(), itemDTO.getI_name(),itemDTO.getPrice(),itemDTO.getQuantity()));
-
+        ItemEntity entity = modelMapper.map(itemDTO, ItemEntity.class);
+        itemRepository.save(entity);
     }
 
     @Override
     public void updateItem(ItemDTO itemDTO) {
-        itemRepository.save(new ItemEntity(itemDTO.getI_id(), itemDTO.getI_name(),itemDTO.getPrice(),itemDTO.getQuantity()));
+        ItemEntity existingItem = itemRepository
+                .findById(itemDTO.getI_id())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Item not found"
+                ));
 
+        modelMapper.map(itemDTO, existingItem);
+
+        itemRepository.save(existingItem);
     }
 
     @Override
     public void deleteItem(ItemDTO itemDTO) {
+        if (!itemRepository.existsById(itemDTO.getI_id())) {
+            throw new RuntimeException("Item not found");
+        }
         itemRepository.deleteById(itemDTO.getI_id());
     }
 
     @Override
     public List<ItemEntity> getAllItems() {
-        return itemRepository.findAll();
+        List<ItemEntity> list = itemRepository.findAll();
+
+        return modelMapper.map(
+                list,
+                new TypeToken<List<ItemDTO>>() {}.getType()
+        );
     }
 }

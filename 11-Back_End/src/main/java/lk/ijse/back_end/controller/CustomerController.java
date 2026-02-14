@@ -25,7 +25,6 @@ public class CustomerController {
         System.out.println("saveCustomer");
         customerService.saveCustomer(customerDTO);
 
-
         return new ResponseEntity<>(new APIResponse<> (200,"Customer Saved",null),HttpStatus.CREATED);
     }
     @PutMapping

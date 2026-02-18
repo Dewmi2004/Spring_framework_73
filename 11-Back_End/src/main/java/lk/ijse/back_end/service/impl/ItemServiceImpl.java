@@ -1,8 +1,6 @@
 package lk.ijse.back_end.service.impl;
 
-import lk.ijse.back_end.dto.CustomerDTO;
 import lk.ijse.back_end.dto.ItemDTO;
-import lk.ijse.back_end.entity.CustomerEntity;
 import lk.ijse.back_end.entity.ItemEntity;
 import lk.ijse.back_end.repository.ItemRepository;
 import lk.ijse.back_end.service.ItemService;
@@ -57,4 +55,14 @@ public class ItemServiceImpl implements ItemService {
                 new TypeToken<List<ItemDTO>>() {}.getType()
         );
     }
+
+    @Override
+    public ItemDTO getItemById(Integer id) {
+        ItemEntity item = itemRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Item not found with ID: " + id));
+
+        return modelMapper.map(item, ItemDTO.class);
+
+    }
+
 }

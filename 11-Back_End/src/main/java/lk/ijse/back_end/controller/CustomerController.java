@@ -40,9 +40,16 @@ public class CustomerController {
         return new ResponseEntity<>(new APIResponse<> (200,"Customer Deleted",null),HttpStatus.OK);
 
     }
-    @GetMapping
-    public List<CustomerEntity> getAllCustomers() {
-        return customerService.getAllCustomers();
 
-    }
+@GetMapping
+public ResponseEntity<APIResponse<List<CustomerEntity>>> getAllCustomers() {
+
+    List<CustomerEntity> customers = customerService.getAllCustomers();
+
+    return new ResponseEntity<>(
+            new APIResponse<>(200, "Success", customers),
+            HttpStatus.OK
+    );
+}
+
 }

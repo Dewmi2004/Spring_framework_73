@@ -41,8 +41,26 @@ public class ItemController {
 
     }
     @GetMapping
-    public List<ItemEntity> getAllItems() {
-        return itemService.getAllItems();
+    public ResponseEntity<APIResponse<List<ItemEntity>>> getAllItems() {
 
+        List<ItemEntity> items = itemService.getAllItems();
+
+        return new ResponseEntity<>(
+                new APIResponse<>(200, "Success", items),
+                HttpStatus.OK
+        );
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<APIResponse<ItemDTO>> getItemById(
+            @PathVariable Integer id) {
+
+        ItemDTO item = itemService.getItemById(id);
+
+        return new ResponseEntity<>(
+                new APIResponse<>(200, "Success", item),
+                HttpStatus.OK
+        );
+    }
+    
 }

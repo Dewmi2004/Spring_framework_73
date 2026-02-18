@@ -1,10 +1,8 @@
 package lk.ijse.back_end.controller;
 
-import lk.ijse.back_end.dto.ItemDTO;
 import lk.ijse.back_end.dto.OrderDTO;
-import lk.ijse.back_end.entity.ItemEntity;
-import lk.ijse.back_end.entity.OrderEntity;
-import lk.ijse.back_end.service.impl.OrderServiceImpl;
+import lk.ijse.back_end.service.OrderService;
+import lk.ijse.back_end.util.APIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,47 +14,39 @@ import java.util.List;
 @CrossOrigin
 public class OrderController {
 
-
-    private final OrderServiceImpl orderService;
+    private final OrderService orderService;
 
     @PostMapping
-    public void saveOrder(@RequestBody OrderDTO orderDTO) {
-        System.out.println("save Order");
-        orderService.saveOrder(orderDTO);
-    }
-    @PutMapping
-    public void UpdateOrder(@RequestBody OrderDTO orderDTO) {
-        System.out.println("Update Order");
-        orderService.updateOrder(orderDTO);
-    }
-    @DeleteMapping
-    public void DeleteOrder(@RequestBody OrderDTO orderDTO) {
-        System.out.println("Delete Order");
-        orderService.deleteOrder(orderDTO);
-    }
-    @GetMapping
-    public List<OrderEntity> getAllOrders() {
-        return orderService.getAllOrders();
+    public APIResponse<String> saveOrder(@RequestBody OrderDTO orderDTO) {
 
+        orderService.saveOrder(orderDTO);
+
+        return new APIResponse<>(200, "Order Saved Successfully", null);
     }
-//    @GetMapping
-//    public void setOrderId(@RequestBody OrderDTO orderDTO) {
-//        orderService.setOrderId(orderDTO.getOrderId());
-//    }
-//    @GetMapping
-//    public void setCustomerName(@RequestBody OrderDTO orderDTO) {
-//        orderService.setCustomerName(orderDTO.getCustomerName());
-//    }
-//    @GetMapping
-//    public void setItemName(@RequestBody OrderDTO orderDTO) {
-//        orderService.setItemName(orderDTO.getItemName());
-//    }
-//    @GetMapping
-//    public void setItemPrice(@RequestBody OrderDTO orderDTO) {
-//        orderService.setItemPrice(orderDTO.getItemUnitPrice());
-//    }
-//    @GetMapping
-//    public void setItemQuantity(@RequestBody OrderDTO orderDTO) {
-//        orderService.setItemQuantity(orderDTO.getItemQty());
-//    }
+
+    @PutMapping
+    public APIResponse<String> updateOrder(@RequestBody OrderDTO orderDTO) {
+
+        orderService.updateOrder(orderDTO);
+
+        return new APIResponse<>(200, "Order Updated Successfully", null);
+    }
+
+    @DeleteMapping("/{id}")
+    public APIResponse<String> deleteOrder(@PathVariable Integer id) {
+
+        orderService.deleteOrder(id);
+
+        return new APIResponse<>(200, "Order Deleted Successfully", null);
+    }
+
+    @GetMapping
+    public APIResponse<List<OrderDTO>> getAllOrders() {
+
+        return new APIResponse<>(
+                200,
+                "Order List Retrieved Successfully",
+                orderService.getAllOrders()
+        );
+    }
 }

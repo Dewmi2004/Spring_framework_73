@@ -1,23 +1,23 @@
 package lk.ijse.back_end.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 @NoArgsConstructor
+@Entity
+@Table(name = "orders")
 public class OrderEntity {
-    @Id
-    private String orderId;
 
-    private String customerId;
-    private String ItemId;
-    private String ItemUnitPrice;
-    private String ItemQty;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer orderId;
+
+    private Integer customerId;
+    private Integer itemId;
+
+    private Double itemUnitPrice;
+    private Integer itemQty;
 }

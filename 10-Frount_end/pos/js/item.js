@@ -1,7 +1,13 @@
+// =================== SAVE ITEM ===================
 function saveItem() {
     let name = $('#inputiname').val();
     let price = $('#inputprice').val();
     let quantity = $('#inputQuantity').val();
+
+    if (!name || !price || !quantity) {
+        alert("Please fill all fields!");
+        return;
+    }
 
     $.ajax({
         url: "http://localhost:8080/api/v1/item",
@@ -14,6 +20,7 @@ function saveItem() {
         }),
         success: function (res) {
             alert("Item successfully saved");
+            clearItemForm();
             getAllItems();
         },
         error: function (error) {
@@ -23,11 +30,17 @@ function saveItem() {
     });
 }
 
+// =================== UPDATE ITEM ===================
 function updateItem() {
     let id = $('#inputiid').val();
     let name = $('#inputiname').val();
     let price = $('#inputprice').val();
     let quantity = $('#inputQuantity').val();
+
+    if (!id || !name || !price || !quantity) {
+        alert("Please fill all fields!");
+        return;
+    }
 
     $.ajax({
         url: "http://localhost:8080/api/v1/item",
@@ -41,6 +54,7 @@ function updateItem() {
         }),
         success: function (res) {
             alert("Item successfully updated");
+            clearItemForm();
             getAllItems();
         },
         error: function (error) {
@@ -50,8 +64,14 @@ function updateItem() {
     });
 }
 
+// =================== DELETE ITEM ===================
 function deleteItem() {
     let id = $('#inputiid').val();
+
+    if (!id) {
+        alert("Please enter item ID to delete");
+        return;
+    }
 
     $.ajax({
         url: "http://localhost:8080/api/v1/item",
@@ -62,6 +82,7 @@ function deleteItem() {
         }),
         success: function (res) {
             alert("Item successfully deleted");
+            clearItemForm();
             getAllItems();
         },
         error: function (error) {
@@ -71,6 +92,7 @@ function deleteItem() {
     });
 }
 
+// =================== GET ALL ITEMS ===================
 function getAllItems() {
     $("#table-item tbody").empty();
 
@@ -78,7 +100,17 @@ function getAllItems() {
         url: "http://localhost:8080/api/v1/item",
         method: "GET",
         success: function (res) {
-            for (let c of res) {
+            console.log("API Response:", res);
+
+            // If API returns { data: [...] } instead of array
+            let items = Array.isArray(res) ? res : res.data || [];
+
+            if (items.length === 0) {
+                $("#table-item tbody").append('<tr><td colspan="4">No items found</td></tr>');
+                return;
+            }
+
+            for (let c of items) {
                 let row = `
                     <tr>
                         <td>${c.i_id}</td>
@@ -97,6 +129,20 @@ function getAllItems() {
     });
 }
 
+// =================== CLEAR FORM ===================
+function clearItemForm() {
+    $('#inputiid').val('');
+    $('#inputiname').val('');
+    $('#inputprice').val('');
+    $('#inputQuantity').val('');
+}
+
+// =================== DOCUMENT READY ===================
 $(document).ready(function () {
     getAllItems();
+
+    // Optional: add click handlers if needed
+    $('#saveBtn').click(saveItem);
+    $('#updateBtn').click(updateItem);
+    $('#deleteBtn').click(deleteItem);
 });

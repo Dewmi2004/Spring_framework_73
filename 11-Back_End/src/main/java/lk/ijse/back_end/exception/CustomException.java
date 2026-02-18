@@ -1,7 +1,7 @@
-//package lk.ijse.back_end.exception;
-//
-//public class CustomException extends RuntimeException {
-//    public CustomException(String message) {
-//        super(message);
-//    }
-//}
+package lk.ijse.back_end.exception;
+
+public class CustomException extends RuntimeException {
+    public CustomException(String message) {
+        super(message);
+    }
+}

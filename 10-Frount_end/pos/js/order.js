@@ -1,6 +1,5 @@
 let cart = [];
 
-// ================= LOAD CUSTOMERS =================
 function loadCustomers() {
     $.ajax({
         url: "http://localhost:8080/api/v1/customer",
@@ -21,7 +20,6 @@ function loadCustomers() {
     });
 }
 
-// ================= LOAD ITEMS =================
 function loadItems() {
     $.ajax({
         url: "http://localhost:8080/api/v1/item",
@@ -42,7 +40,6 @@ function loadItems() {
     });
 }
 
-// ================= AUTO FILL ITEM DETAILS =================
 $("#selectItem").change(function () {
     let itemId = $(this).val();
     if (!itemId) {
@@ -65,7 +62,6 @@ $("#selectItem").change(function () {
     });
 });
 
-// ================= ADD TO CART =================
 $("#btnAddToCart").click(function () {
     let itemId = parseInt($("#selectItem").val());
     let qty = parseInt($("#inputordQuantity").val());
@@ -82,7 +78,6 @@ $("#btnAddToCart").click(function () {
         return;
     }
 
-    // Prevent duplicate item in cart
     let existing = cart.find(c => c.itemId === itemId);
     if (existing) {
         existing.qty += qty;
@@ -92,14 +87,12 @@ $("#btnAddToCart").click(function () {
         addCartRow(itemId, unitPrice, qty);
     }
 
-    // Clear input
     $("#inputordQuantity").val("");
     $("#selectItem").val("");
     $("#inputunitprice").val("");
     $("#availablequantity").val("");
 });
 
-// ================= ADD ROW TO CART TABLE =================
 function addCartRow(itemId, unitPrice, qty) {
     let total = unitPrice * qty;
     $("#table-cart tbody").append(`
@@ -115,7 +108,6 @@ function addCartRow(itemId, unitPrice, qty) {
     `);
 }
 
-// ================= UPDATE CART TABLE =================
 function updateCartTable() {
     $("#table-cart tbody").empty();
     cart.forEach(c => {
@@ -131,7 +123,6 @@ function updateCartTable() {
     });
 }
 
-// ================= REMOVE FROM CART =================
 $("#table-cart").on("click", ".btn-remove", function () {
     let row = $(this).closest("tr");
     let itemId = parseInt(row.data("item-id"));
@@ -140,7 +131,6 @@ $("#table-cart").on("click", ".btn-remove", function () {
     row.remove();
 });
 
-// ================= PLACE ORDER =================
 $("#btnPlaceOrder").click(function () {
     let customerId = parseInt($("#selectCustomer").val());
 
@@ -175,7 +165,6 @@ $("#btnPlaceOrder").click(function () {
     });
 });
 
-// ================= PAGE LOAD =================
 $(document).ready(function () {
     loadCustomers();
     loadItems();

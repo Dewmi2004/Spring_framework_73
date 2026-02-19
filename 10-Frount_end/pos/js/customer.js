@@ -1,4 +1,3 @@
-// =================== SAVE CUSTOMER ===================
 function saveCustomer() {
     let name = $('#inputname').val();
     let age = $('#inputage').val();
@@ -30,7 +29,6 @@ function saveCustomer() {
     });
 }
 
-// =================== UPDATE CUSTOMER ===================
 function updateCustomer() {
     let id = $('#inputid').val();
     let name = $('#inputname').val();
@@ -64,7 +62,6 @@ function updateCustomer() {
     });
 }
 
-// =================== DELETE CUSTOMER ===================
 function deleteCustomer() {
     let id = $('#inputid').val();
 
@@ -90,7 +87,6 @@ function deleteCustomer() {
     });
 }
 
-// =================== GET ALL CUSTOMERS ===================
 function getAllCustomers() {
     $("#table-customer tbody").empty();
 
@@ -100,7 +96,6 @@ function getAllCustomers() {
         success: function (res) {
             console.log("API Response:", res);
 
-            // Handle nested data if API returns { data: [...] }
             let customers = Array.isArray(res) ? res : res.data || [];
 
             if (customers.length === 0) {
@@ -127,7 +122,6 @@ function getAllCustomers() {
     });
 }
 
-// =================== CLEAR FORM ===================
 function clearCustomerForm() {
     $('#inputid').val('');
     $('#inputname').val('');
@@ -135,11 +129,9 @@ function clearCustomerForm() {
     $('#inputAddress').val('');
 }
 
-// =================== DOCUMENT READY ===================
 $(document).ready(function () {
     getAllCustomers();
 
-    // Optional: attach click handlers
     $('#saveBtn').click(saveCustomer);
     $('#updateBtn').click(updateCustomer);
     $('#deleteBtn').click(deleteCustomer);

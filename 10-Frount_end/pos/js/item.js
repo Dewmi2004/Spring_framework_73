@@ -1,4 +1,3 @@
-// =================== SAVE ITEM ===================
 function saveItem() {
     let name = $('#inputiname').val();
     let price = $('#inputprice').val();
@@ -30,7 +29,6 @@ function saveItem() {
     });
 }
 
-// =================== UPDATE ITEM ===================
 function updateItem() {
     let id = $('#inputiid').val();
     let name = $('#inputiname').val();
@@ -64,7 +62,6 @@ function updateItem() {
     });
 }
 
-// =================== DELETE ITEM ===================
 function deleteItem() {
     let id = $('#inputiid').val();
 
@@ -92,7 +89,6 @@ function deleteItem() {
     });
 }
 
-// =================== GET ALL ITEMS ===================
 function getAllItems() {
     $("#table-item tbody").empty();
 
@@ -102,7 +98,6 @@ function getAllItems() {
         success: function (res) {
             console.log("API Response:", res);
 
-            // If API returns { data: [...] } instead of array
             let items = Array.isArray(res) ? res : res.data || [];
 
             if (items.length === 0) {
@@ -129,7 +124,6 @@ function getAllItems() {
     });
 }
 
-// =================== CLEAR FORM ===================
 function clearItemForm() {
     $('#inputiid').val('');
     $('#inputiname').val('');
@@ -137,11 +131,9 @@ function clearItemForm() {
     $('#inputQuantity').val('');
 }
 
-// =================== DOCUMENT READY ===================
 $(document).ready(function () {
     getAllItems();
 
-    // Optional: add click handlers if needed
     $('#saveBtn').click(saveItem);
     $('#updateBtn').click(updateItem);
     $('#deleteBtn').click(deleteItem);

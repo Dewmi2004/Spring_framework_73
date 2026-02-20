@@ -16,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class ItemServiceImpl implements ItemService {
+
     private final ItemRepository itemRepository;
     private final ModelMapper modelMapper;
 
@@ -34,7 +35,6 @@ public class ItemServiceImpl implements ItemService {
                 ));
 
         modelMapper.map(itemDTO, existingItem);
-
         itemRepository.save(existingItem);
     }
 
@@ -47,22 +47,15 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<ItemEntity> getAllItems() {
+    public List<ItemDTO> getAllItems() {
         List<ItemEntity> list = itemRepository.findAll();
-
-        return modelMapper.map(
-                list,
-                new TypeToken<List<ItemDTO>>() {}.getType()
-        );
+        return modelMapper.map(list, new TypeToken<List<ItemDTO>>() {}.getType());
     }
 
     @Override
     public ItemDTO getItemById(Integer id) {
         ItemEntity item = itemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Item not found with ID: " + id));
-
         return modelMapper.map(item, ItemDTO.class);
-
     }
-
 }

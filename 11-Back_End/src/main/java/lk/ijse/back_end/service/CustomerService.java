@@ -9,5 +9,5 @@ public interface CustomerService {
     public void saveCustomer(CustomerDTO customerDTO);
     public void updateCustomer(CustomerDTO customerDTO);
     public void deleteCustomer(CustomerDTO customerDTO);
-    public List<CustomerEntity> getAllCustomers();
+    public List<CustomerDTO> getAllCustomers();
 }

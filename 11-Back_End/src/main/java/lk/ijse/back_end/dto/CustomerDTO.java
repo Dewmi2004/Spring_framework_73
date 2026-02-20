@@ -13,13 +13,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerDTO {
+
     @NotNull
     private Integer id;
+
     @NotBlank(message = "Customer name is mandatory")
     private String name;
-    private String age;
-    @NotBlank(message = "Customer address is mandatory")
-    @Size(min = 10,message = "customer address should be at least 10 characters")
-    private String address;
 
+    private String age;
+
+    @NotBlank(message = "Customer address is mandatory")
+    @Size(min = 10, message = "customer address should be at least 10 characters")
+    private String address;
 }

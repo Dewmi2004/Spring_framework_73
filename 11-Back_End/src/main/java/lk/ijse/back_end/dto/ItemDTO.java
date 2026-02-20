@@ -12,11 +12,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemDTO {
+
     @NotNull
     private Integer i_id;
+
     @NotBlank(message = "Item name is mandatory")
     private String i_name;
-    private String price;
-    private String quantity;
 
+    private String price;
+
+    private String quantity;
 }

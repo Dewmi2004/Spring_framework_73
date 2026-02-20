@@ -61,16 +61,16 @@ public class OrderServiceImpl implements OrderService {
                 throw new RuntimeException("Invalid price format in DB");
             }
 
-            // ✅ Save Order Row (One row per item)
+            // Save Order Row (One row per item)
             OrderEntity order = new OrderEntity();
-            order.setCustomerId(customer.getId());
-            order.setItemId(item.getI_id());
+            order.setCustomer(customer);       // set the full CustomerEntity object
+            order.setItem(item);               // set the full ItemEntity object
             order.setItemUnitPrice(unitPrice);
             order.setItemQty(cartItem.getQty());
 
             orderRepository.save(order);
 
-            // ✅ Reduce Stock
+            // Reduce Stock
             int newQty = availableQty - cartItem.getQty();
             item.setQuantity(String.valueOf(newQty));
             itemRepository.save(item);

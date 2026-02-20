@@ -9,6 +9,6 @@ public interface ItemService {
     public void saveItem(ItemDTO itemDTO);
     public void updateItem(ItemDTO itemDTO);
     public void deleteItem(ItemDTO itemDTO);
-    public List<ItemEntity> getAllItems();
+    public List<ItemDTO> getAllItems();
     public ItemDTO getItemById(Integer id);
 }

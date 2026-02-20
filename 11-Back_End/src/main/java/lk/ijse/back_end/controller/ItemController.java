@@ -1,8 +1,7 @@
 package lk.ijse.back_end.controller;
 
 import lk.ijse.back_end.dto.ItemDTO;
-import lk.ijse.back_end.entity.ItemEntity;
-import lk.ijse.back_end.service.impl.ItemServiceImpl;
+import lk.ijse.back_end.service.ItemService;
 import lk.ijse.back_end.util.APIResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,50 +16,35 @@ import java.util.List;
 @CrossOrigin
 public class ItemController {
 
-    private final ItemServiceImpl itemService;
+    private final ItemService itemService;
 
     @PostMapping
     public ResponseEntity<APIResponse<String>> saveItem(@RequestBody ItemDTO itemDTO) {
-        System.out.println("save Item");
         itemService.saveItem(itemDTO);
-        return new ResponseEntity<>(new APIResponse<>(200,"Item Saved",null), HttpStatus.CREATED);
-
+        return new ResponseEntity<>(new APIResponse<>(200, "Item Saved", null), HttpStatus.CREATED);
     }
+
     @PutMapping
-    public ResponseEntity<APIResponse<String>> UpdateItem(@RequestBody ItemDTO itemDTO) {
-        System.out.println("Update Item");
+    public ResponseEntity<APIResponse<String>> updateItem(@RequestBody ItemDTO itemDTO) {
         itemService.updateItem(itemDTO);
-        return new ResponseEntity<>(new APIResponse<> (200,"Item Updated",null),HttpStatus.OK);
-
+        return new ResponseEntity<>(new APIResponse<>(200, "Item Updated", null), HttpStatus.OK);
     }
+
     @DeleteMapping
-    public ResponseEntity<APIResponse<String>> DeleteItem(@RequestBody ItemDTO itemDTO) {
-        System.out.println("Delete Item");
+    public ResponseEntity<APIResponse<String>> deleteItem(@RequestBody ItemDTO itemDTO) {
         itemService.deleteItem(itemDTO);
-        return new ResponseEntity<>(new APIResponse<> (200,"Item Deleted",null),HttpStatus.OK);
-
+        return new ResponseEntity<>(new APIResponse<>(200, "Item Deleted", null), HttpStatus.OK);
     }
+
     @GetMapping
-    public ResponseEntity<APIResponse<List<ItemEntity>>> getAllItems() {
-
-        List<ItemEntity> items = itemService.getAllItems();
-
-        return new ResponseEntity<>(
-                new APIResponse<>(200, "Success", items),
-                HttpStatus.OK
-        );
+    public ResponseEntity<APIResponse<List<ItemDTO>>> getAllItems() {
+        List<ItemDTO> items = itemService.getAllItems();
+        return new ResponseEntity<>(new APIResponse<>(200, "Success", items), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<APIResponse<ItemDTO>> getItemById(
-            @PathVariable Integer id) {
-
+    public ResponseEntity<APIResponse<ItemDTO>> getItemById(@PathVariable Integer id) {
         ItemDTO item = itemService.getItemById(id);
-
-        return new ResponseEntity<>(
-                new APIResponse<>(200, "Success", item),
-                HttpStatus.OK
-        );
+        return new ResponseEntity<>(new APIResponse<>(200, "Success", item), HttpStatus.OK);
     }
-    
 }

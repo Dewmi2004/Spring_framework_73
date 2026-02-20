@@ -2,7 +2,6 @@ package lk.ijse.back_end.service.impl;
 
 import lk.ijse.back_end.dto.CustomerDTO;
 import lk.ijse.back_end.entity.CustomerEntity;
-
 import lk.ijse.back_end.repository.CustomerRepository;
 import lk.ijse.back_end.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -17,20 +16,18 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class CustomerServiceImpl implements CustomerService {
-private final CustomerRepository customerRepository;
 
-private final ModelMapper modelMapper;
-@Override
-public void saveCustomer(CustomerDTO customerDTO) {
-    CustomerEntity entity = modelMapper.map(customerDTO, CustomerEntity.class);
-    customerRepository.save(entity);
+    private final CustomerRepository customerRepository;
+    private final ModelMapper modelMapper;
 
-}
-
+    @Override
+    public void saveCustomer(CustomerDTO customerDTO) {
+        CustomerEntity entity = modelMapper.map(customerDTO, CustomerEntity.class);
+        customerRepository.save(entity);
+    }
 
     @Override
     public void updateCustomer(CustomerDTO customerDTO) {
-
         CustomerEntity existingCustomer = customerRepository
                 .findById(customerDTO.getId())
                 .orElseThrow(() -> new ResponseStatusException(
@@ -38,12 +35,8 @@ public void saveCustomer(CustomerDTO customerDTO) {
                 ));
 
         modelMapper.map(customerDTO, existingCustomer);
-
         customerRepository.save(existingCustomer);
     }
-
-
-
 
     @Override
     public void deleteCustomer(CustomerDTO customerDTO) {
@@ -54,14 +47,8 @@ public void saveCustomer(CustomerDTO customerDTO) {
     }
 
     @Override
-    public List<CustomerEntity> getAllCustomers() {
-
+    public List<CustomerDTO> getAllCustomers() {
         List<CustomerEntity> list = customerRepository.findAll();
-
-        return modelMapper.map(
-                list,
-                new TypeToken<List<CustomerDTO>>() {}.getType()
-        );
+        return modelMapper.map(list, new TypeToken<List<CustomerDTO>>() {}.getType());
     }
-
 }

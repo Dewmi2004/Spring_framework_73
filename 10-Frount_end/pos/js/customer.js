@@ -105,7 +105,7 @@ function getAllCustomers() {
 
             for (let c of customers) {
                 let row = `
-                    <tr>
+                    <tr data-id="${c.id}" data-name="${c.name}" data-age="${c.age}" data-address="${c.address}" style="cursor:pointer;">
                         <td>${c.id}</td>
                         <td>${c.name}</td>
                         <td>${c.age}</td>
@@ -135,4 +135,11 @@ $(document).ready(function () {
     $('#saveBtn').click(saveCustomer);
     $('#updateBtn').click(updateCustomer);
     $('#deleteBtn').click(deleteCustomer);
+
+    $("#table-customer tbody").on("click", "tr", function () {
+        $('#inputid').val($(this).data('id'));
+        $('#inputname').val($(this).data('name'));
+        $('#inputage').val($(this).data('age'));
+        $('#inputAddress').val($(this).data('address'));
+    });
 });

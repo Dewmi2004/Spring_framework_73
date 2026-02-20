@@ -107,7 +107,7 @@ function getAllItems() {
 
             for (let c of items) {
                 let row = `
-                    <tr>
+                    <tr data-id="${c.i_id}" data-name="${c.i_name}" data-price="${c.price}" data-quantity="${c.quantity}" style="cursor:pointer;">
                         <td>${c.i_id}</td>
                         <td>${c.i_name}</td>
                         <td>${c.price}</td>
@@ -137,4 +137,11 @@ $(document).ready(function () {
     $('#saveBtn').click(saveItem);
     $('#updateBtn').click(updateItem);
     $('#deleteBtn').click(deleteItem);
+
+    $("#table-item tbody").on("click", "tr", function () {
+        $('#inputiid').val($(this).data('id'));
+        $('#inputiname').val($(this).data('name'));
+        $('#inputprice').val($(this).data('price'));
+        $('#inputQuantity').val($(this).data('quantity'));
+    });
 });

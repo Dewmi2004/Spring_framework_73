@@ -13,7 +13,6 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // ─── 400 BAD REQUEST ────────────────────────────────────────────────────────
 
     // Handles @Valid / @Validated failures on DTOs (e.g. @NotBlank, @NotNull, @Size)
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -58,7 +57,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // ─── 404 NOT FOUND ──────────────────────────────────────────────────────────
 
     // Handles Customer / Item / Order not found (thrown as RuntimeException in services)
     @ExceptionHandler(CustomerNotFoundException.class)
@@ -85,7 +83,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // ─── 409 CONFLICT ───────────────────────────────────────────────────────────
 
     // Handles not enough stock when placing an order
     @ExceptionHandler(InsufficientStockException.class)
@@ -96,7 +93,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-    // ─── 500 INTERNAL SERVER ERROR ──────────────────────────────────────────────
 
     // Catch-all for any unexpected exception not handled above
     @ExceptionHandler(Exception.class)

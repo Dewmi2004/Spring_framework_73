@@ -6,6 +6,9 @@ import lk.ijse.back_end.entity.CustomerEntity;
 import lk.ijse.back_end.entity.ItemEntity;
 import lk.ijse.back_end.entity.OrderEntity;
 import lk.ijse.back_end.entity.OrderItemEntity;
+import lk.ijse.back_end.exception.CustomerNotFoundException;
+import lk.ijse.back_end.exception.InsufficientStockException;
+import lk.ijse.back_end.exception.ItemNotFoundException;
 import lk.ijse.back_end.repository.CustomerRepository;
 import lk.ijse.back_end.repository.ItemRepository;
 import lk.ijse.back_end.repository.OrderRepository;
@@ -30,12 +33,13 @@ public class OrderServiceImpl implements OrderService {
     public void placeOrder(CartDTO cartDTO) {
 
         if (cartDTO == null || cartDTO.getCustomerId() == null) {
-            throw new RuntimeException("Customer ID is required");
+            throw new IllegalArgumentException("Customer ID is required");
         }
 
         CustomerEntity customer = customerRepository
                 .findById(cartDTO.getCustomerId())
-                .orElseThrow(() -> new RuntimeException("Customer Not Found"));
+                .orElseThrow(() -> new CustomerNotFoundException(
+                        "Customer not found with ID: " + cartDTO.getCustomerId()));
 
         // Create ONE order header for the whole cart
         OrderEntity order = new OrderEntity();
@@ -46,29 +50,32 @@ public class OrderServiceImpl implements OrderService {
         for (CartItemDTO cartItem : cartDTO.getItems()) {
 
             if (cartItem.getItemId() == null || cartItem.getQty() == null) {
-                throw new RuntimeException("Invalid cart item");
+                throw new IllegalArgumentException("Invalid cart item — itemId and qty are required");
             }
 
             ItemEntity item = itemRepository
                     .findById(cartItem.getItemId())
-                    .orElseThrow(() -> new RuntimeException("Item Not Found"));
+                    .orElseThrow(() -> new ItemNotFoundException(
+                            "Item not found with ID: " + cartItem.getItemId()));
 
             Integer availableQty;
             try {
                 availableQty = Integer.parseInt(item.getQuantity());
             } catch (NumberFormatException e) {
-                throw new RuntimeException("Invalid quantity format in DB");
+                throw new NumberFormatException("Invalid quantity format for item: " + item.getI_name());
             }
 
             if (availableQty < cartItem.getQty()) {
-                throw new RuntimeException("Not enough stock for item: " + item.getI_name());
+                throw new InsufficientStockException(
+                        "Not enough stock for item: " + item.getI_name() +
+                                ". Available: " + availableQty + ", Requested: " + cartItem.getQty());
             }
 
             Double unitPrice;
             try {
                 unitPrice = Double.parseDouble(item.getPrice());
             } catch (NumberFormatException e) {
-                throw new RuntimeException("Invalid price format in DB");
+                throw new NumberFormatException("Invalid price format for item: " + item.getI_name());
             }
 
             // Create one order item line per cart item

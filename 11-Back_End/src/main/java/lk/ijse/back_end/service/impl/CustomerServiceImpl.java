@@ -2,14 +2,13 @@ package lk.ijse.back_end.service.impl;
 
 import lk.ijse.back_end.dto.CustomerDTO;
 import lk.ijse.back_end.entity.CustomerEntity;
+import lk.ijse.back_end.exception.CustomerNotFoundException;
 import lk.ijse.back_end.repository.CustomerRepository;
 import lk.ijse.back_end.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -30,9 +29,8 @@ public class CustomerServiceImpl implements CustomerService {
     public void updateCustomer(CustomerDTO customerDTO) {
         CustomerEntity existingCustomer = customerRepository
                 .findById(customerDTO.getId())
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND, "Customer not found"
-                ));
+                .orElseThrow(() -> new CustomerNotFoundException(
+                        "Customer not found with ID: " + customerDTO.getId()));
 
         modelMapper.map(customerDTO, existingCustomer);
         customerRepository.save(existingCustomer);
@@ -41,7 +39,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void deleteCustomer(CustomerDTO customerDTO) {
         if (!customerRepository.existsById(customerDTO.getId())) {
-            throw new RuntimeException("Customer not found");
+            throw new CustomerNotFoundException(
+                    "Customer not found with ID: " + customerDTO.getId());
         }
         customerRepository.deleteById(customerDTO.getId());
     }

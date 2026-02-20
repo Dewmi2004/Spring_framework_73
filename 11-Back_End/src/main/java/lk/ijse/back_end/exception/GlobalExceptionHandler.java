@@ -13,7 +13,6 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-
     // Handles @Valid / @Validated failures on DTOs (e.g. @NotBlank, @NotNull, @Size)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<APIResponse<Map<String, String>>> handleValidationException(
@@ -57,7 +56,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-
     // Handles Customer / Item / Order not found (thrown as RuntimeException in services)
     @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<APIResponse<String>> handleCustomerNotFoundException(CustomerNotFoundException e) {
@@ -83,7 +81,6 @@ public class GlobalExceptionHandler {
         );
     }
 
-
     // Handles not enough stock when placing an order
     @ExceptionHandler(InsufficientStockException.class)
     public ResponseEntity<APIResponse<String>> handleInsufficientStockException(InsufficientStockException e) {
@@ -92,7 +89,6 @@ public class GlobalExceptionHandler {
                 HttpStatus.CONFLICT
         );
     }
-
 
     // Catch-all for any unexpected exception not handled above
     @ExceptionHandler(Exception.class)

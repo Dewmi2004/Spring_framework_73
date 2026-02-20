@@ -5,6 +5,7 @@ import lk.ijse.back_end.dto.CartItemDTO;
 import lk.ijse.back_end.entity.CustomerEntity;
 import lk.ijse.back_end.entity.ItemEntity;
 import lk.ijse.back_end.entity.OrderEntity;
+import lk.ijse.back_end.entity.OrderItemEntity;
 import lk.ijse.back_end.repository.CustomerRepository;
 import lk.ijse.back_end.repository.ItemRepository;
 import lk.ijse.back_end.repository.OrderRepository;
@@ -12,6 +13,9 @@ import lk.ijse.back_end.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +36,12 @@ public class OrderServiceImpl implements OrderService {
         CustomerEntity customer = customerRepository
                 .findById(cartDTO.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer Not Found"));
+
+        // Create ONE order header for the whole cart
+        OrderEntity order = new OrderEntity();
+        order.setCustomer(customer);
+
+        List<OrderItemEntity> orderItems = new ArrayList<>();
 
         for (CartItemDTO cartItem : cartDTO.getItems()) {
 
@@ -61,19 +71,22 @@ public class OrderServiceImpl implements OrderService {
                 throw new RuntimeException("Invalid price format in DB");
             }
 
-            // Save Order Row (One row per item)
-            OrderEntity order = new OrderEntity();
-            order.setCustomer(customer);       // set the full CustomerEntity object
-            order.setItem(item);               // set the full ItemEntity object
-            order.setItemUnitPrice(unitPrice);
-            order.setItemQty(cartItem.getQty());
-
-            orderRepository.save(order);
+            // Create one order item line per cart item
+            OrderItemEntity orderItem = new OrderItemEntity();
+            orderItem.setOrder(order);
+            orderItem.setItem(item);
+            orderItem.setItemUnitPrice(unitPrice);
+            orderItem.setItemQty(cartItem.getQty());
+            orderItems.add(orderItem);
 
             // Reduce Stock
             int newQty = availableQty - cartItem.getQty();
             item.setQuantity(String.valueOf(newQty));
             itemRepository.save(item);
         }
+
+        // Attach all items to the order and save ONCE — cascade saves all order items
+        order.setOrderItems(orderItems);
+        orderRepository.save(order);
     }
 }

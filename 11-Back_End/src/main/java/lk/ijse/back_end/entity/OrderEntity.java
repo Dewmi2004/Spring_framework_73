@@ -3,6 +3,8 @@ package lk.ijse.back_end.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "orders")
 @Getter
@@ -20,13 +22,6 @@ public class OrderEntity {
     @JoinColumn(name = "customer_id", nullable = false)
     private CustomerEntity customer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "item_id", nullable = false)
-    private ItemEntity item;
-
-    @Column(name = "item_unit_price")
-    private Double itemUnitPrice;
-
-    @Column(name = "item_qty")
-    private Integer itemQty;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<OrderItemEntity> orderItems;
 }

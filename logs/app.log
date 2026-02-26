@@ -1,0 +1,89 @@
+2026-02-26T15:12:47.968+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] l.i.s.Application                        : Starting Application using Java 21.0.7 with PID 15220 (C:\Users\USER\Documents\2nd sem Projects\AAD\javaEE\Spring_framework_73\14-Spring_Test_Logs_and_Api_Docs\target\classes started by USER in C:\Users\USER\Documents\2nd sem Projects\AAD\javaEE\Spring_framework_73)
+2026-02-26T15:12:47.971+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] l.i.s.Application                        : No active profile set, falling back to 1 default profile: "default"
+2026-02-26T15:12:48.574+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26T15:12:48.616+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 1 JPA repository interface.
+2026-02-26T15:12:49.011+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-26T15:12:49.021+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-26T15:12:49.021+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-26T15:12:49.053+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1051 ms
+2026-02-26T15:12:49.207+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-26T15:12:49.283+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-02-26T15:12:49.669+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26T15:12:49.702+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-26T15:12:50.046+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@199806aa
+2026-02-26T15:12:50.048+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-26T15:12:50.091+05:30  WARN 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26T15:12:50.105+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/doctest?createDatabaseIfNotExist=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: doctest/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26T15:12:50.965+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26T15:12:51.357+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26T15:12:51.479+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26T15:12:51.596+05:30  WARN 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26T15:12:51.878+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-26T15:12:51.882+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [main] l.i.s.Application                        : Started Application in 4.349 seconds (process running for 4.98)
+2026-02-26T15:13:21.078+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26T15:13:21.078+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-26T15:13:21.081+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-26T15:13:21.334+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-3] l.i.s.controller.ProductController       : information log 
+2026-02-26T15:13:21.334+05:30  WARN 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-3] l.i.s.controller.ProductController       : warning log  
+2026-02-26T15:13:21.334+05:30 ERROR 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-3] l.i.s.controller.ProductController       : error log  
+2026-02-26T15:14:12.516+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-2] l.i.s.controller.ProductController       : Get all products
+2026-02-26T15:16:36.686+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26T15:16:36.690+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-26T15:16:36.693+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26T15:16:36.714+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-26T15:16:36.720+05:30  INFO 15220 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-26T15:20:58.741+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] l.i.s.Application                        : Starting Application using Java 21.0.7 with PID 9664 (C:\Users\USER\Documents\2nd sem Projects\AAD\javaEE\Spring_framework_73\14-Spring_Test_Logs_and_Api_Docs\target\classes started by USER in C:\Users\USER\Documents\2nd sem Projects\AAD\javaEE\Spring_framework_73)
+2026-02-26T15:20:58.744+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] l.i.s.Application                        : No active profile set, falling back to 1 default profile: "default"
+2026-02-26T15:20:59.309+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-26T15:20:59.343+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interface.
+2026-02-26T15:20:59.665+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-26T15:20:59.678+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-26T15:20:59.679+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-26T15:20:59.724+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 950 ms
+2026-02-26T15:20:59.859+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-26T15:20:59.918+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-02-26T15:21:00.263+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-26T15:21:00.287+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-26T15:21:00.579+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22f80e36
+2026-02-26T15:21:00.581+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-26T15:21:00.625+05:30  WARN 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-26T15:21:00.638+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/doctest?createDatabaseIfNotExist=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: doctest/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-26T15:21:01.355+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-26T15:21:01.741+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26T15:21:01.803+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-26T15:21:01.948+05:30  WARN 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-26T15:21:02.289+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-26T15:21:02.294+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] l.i.s.Application                        : Started Application in 3.935 seconds (process running for 4.624)
+2026-02-26T15:21:02.296+05:30  WARN 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-02-26T15:21:02.296+05:30  WARN 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-02-26T15:21:40.924+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26T15:21:40.925+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-26T15:21:40.928+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-02-26T15:21:42.038+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [http-nio-8080-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 481 ms
+2026-02-26T15:24:20.062+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26T15:24:20.066+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-26T15:24:20.070+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26T15:24:20.088+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-26T15:24:20.092+05:30  INFO 9664 --- [14-Spring_Test_Logs_and_Api_Docs] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,6 +1,7 @@
 package lk.ijse.security_backend.controller;
 
 import lk.ijse.security_backend.dto.APIResponse;
+import lk.ijse.security_backend.dto.AuthDTO;
 import lk.ijse.security_backend.dto.RegisterDTO;
 import lk.ijse.security_backend.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -13,11 +14,15 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
-    public ResponseEntity<APIResponse> registerUser(@RequestBody RegisterDTO registerDTO){
-        return  ResponseEntity.ok(new APIResponse(200,"OK",authService.register(registerDTO)));
+    @PostMapping("signUp")
+    public ResponseEntity<APIResponse> registerUser(@RequestBody RegisterDTO registerDTO) {
+        return ResponseEntity.ok(new APIResponse
+                (200,"OK",authService.register(registerDTO)));
     }
-    @PostMapping("register")
-    public ResponseEntity<APIResponse> logicUser(@RequestBody RegisterDTO registerDTO){
-        return ResponseEntity.ok(new APIResponse(200,"OK",authService.register(registerDTO)));
+    @PostMapping("signIn")
+    public ResponseEntity<APIResponse> loginUser(@RequestBody AuthDTO authDTO) {
+        return ResponseEntity.ok(new APIResponse(
+                200,"OK",authService.authenticate(authDTO)
+        ));
     }
 }

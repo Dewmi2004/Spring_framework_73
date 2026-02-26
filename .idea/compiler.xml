@@ -18,15 +18,15 @@
         <module name="01-Spring_Core" />
         <module name="05-Cofigurtion_Object" />
       </profile>
-      <profile name="Annotation profile for 13-Security_BackEnd" enabled="true">
+      <profile name="Annotation profile for 14-Spring_Test_Logs_and_Api_Docs" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
         <module name="Security_BackEnd" />
+        <module name="Spring_Test_Logs_and_Api_Docs" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -37,6 +37,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Back_End" options="-parameters" />
       <module name="Security_BackEnd" options="-parameters" />
+      <module name="Spring_Test_Logs_and_Api_Docs" options="-parameters" />
     </option>
   </component>
 </project>

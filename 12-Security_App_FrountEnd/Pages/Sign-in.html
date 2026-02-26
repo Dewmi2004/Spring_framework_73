@@ -52,25 +52,6 @@
                 </div>
             </div>
 
-            <!-- Role -->
-            <div class="mb-3">
-                <label class="form-label" for="role">Role</label>
-                <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-shield-check"></i></span>
-                    <select class="form-select" id="role" onchange="highlightBadge(this.value)">
-                        <option value="">— Select your role —</option>
-                        <option value="admin">Admin</option>
-                        <option value="manager">User</option>
-
-                    </select>
-                </div>
-                <div class="role-badges mt-2">
-                    <span class="role-badge admin"   data-role="admin">Admin</span>
-                    <span class="role-badge manager" data-role="manager">User</span>
-
-                </div>
-            </div>
-
             <!-- Remember / Forgot -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-check">
@@ -82,7 +63,7 @@
 
             <!-- Buttons -->
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-primary-save flex-grow-1">Sign In</button>
+                <button type="submit" class="btn btn-primary-save flex-grow-1" onclick="login()">Sign In</button>
                 <button type="reset" class="btn btn-primary-reset" onclick="clearBadges()">Clear</button>
             </div>
 
@@ -94,6 +75,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../jquery-3.7.1.min.js"></script>
+<script src="../js/sign-in.js"></script>
 <script>
     function togglePwd(fieldId, btn) {
         const input = document.getElementById(fieldId);
@@ -106,13 +89,7 @@
             icon.className = 'bi bi-eye';
         }
     }
-    function highlightBadge(val) {
-        document.querySelectorAll('.role-badge').forEach(b =>
-            b.classList.toggle('active-badge', b.dataset.role === val));
-    }
-    function clearBadges() {
-        document.querySelectorAll('.role-badge').forEach(b => b.classList.remove('active-badge'));
-    }
+
 </script>
 </body>
 </html>

@@ -14,8 +14,9 @@
         <option value="$PROJECT_DIR$/08-Spring_WebMVC/pom.xml" />
         <option value="$PROJECT_DIR$/09-REST_Controller/pom.xml" />
         <option value="$PROJECT_DIR$/10_Frount_End/pom.xml" />
-        <option value="$PROJECT_DIR$/11-Back_End/pom.xml" />
         <option value="$PROJECT_DIR$/13-Security_BackEnd/pom.xml" />
+        <option value="$PROJECT_DIR$/11-Back_End/pom.xml" />
+        <option value="$PROJECT_DIR$/14-Spring_Test_Logs_and_Api_Docs/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
